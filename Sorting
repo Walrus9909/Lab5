@@ -51,41 +51,39 @@ public class Sorting {
 
 		 
 		 int sortChoice = Integer.parseInt(args[1]);
+		 String sortType = null;
+		 
 			switch(sortChoice) {
 			case 0:
-				//Arrays.sort()
+				sortType = "Java Default";
 				//Find out how long this takes
-			
 				
 				break;
 			case 1:
-				//Bubble sort
-				
+				sortType = "Bubble Sort";
 				
 				break;
 			case 2:
-				//Selection Sort
-				
+				sortType = "Selection Sort";
 				
 				break;
 			case 3:
-				//Insertion Sort
+				sortType = "Insertion Sort";
 				
 				break;
 			case 4:
-				//Merge Sort
+				sortType = "Merge Sort";
 				
 				break;
 			case 5:
-				//Quick Sort
+				sortType = "Quick Sort";
 				
 				break;
 			
 			}
 		 
 		 
-		 
-		 
+		
 		 
 		// TODO: For each array, a, b, c, d:
 		Stopwatch timer = new Stopwatch();
@@ -97,7 +95,7 @@ public class Sorting {
 		// TODO: Replace with your own netid
 		String netID = "wwilli17";
 		// TODO: Replace with the algorithm used
-		String algorithmUsed = "insertion sort";
+		String algorithmUsed =  sortType;
 		// TODO: Replace with the array used
 		String arrayUsed = "a";
 		StdOut.printf("%s %s %8.1f   %s  %s  %s\n", algorithmUsed, arrayUsed, time, timeStamp, netID, args[0]);
