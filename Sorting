@@ -18,11 +18,10 @@ public class Sorting {
 	public static void main(String[] args) {
 		//In in = new In(args[0]);
 		//In alg = new In(args[1]);
-		int[] test = new int[] {2,4,6,1,3,5,8,7,9,0};
 
 		// Storing file input in an array
-		//int[] a = in.readAllInts();
-		int[] b = preSort(test);
+		int[] a = in.readAllInts();
+		int[] b = preSort(a);
 		int[] c = reverse(b);
 		int[] d = almostSort(b);
 		
