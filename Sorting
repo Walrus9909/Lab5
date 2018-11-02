@@ -1,11 +1,4 @@
-import java.lang.reflect.Array;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
-
 public class Sorting {
-	
-	
 
 	/**
 	 * 
@@ -16,18 +9,18 @@ public class Sorting {
 	 * @param args the command-line arguments
 	 */
 	public static void main(String[] args) {
-		//In in = new In(args[0]);
-		//In alg = new In(args[1]);
+		In in = new In(args[0]);
+		In alg = new In(args[1]);
 
 		// Storing file input in an array
 		int[] a = in.readAllInts();
 		int[] b = preSort(a);
 		int[] c = reverse(b);
 		int[] d = almostSort(b);
-		
-		//System.out.println(Arrays.toString(b));
-		//System.out.println(Arrays.toString(c));
-		//System.out.println(Arrays.toString(d));
+
+		// System.out.println(Arrays.toString(b));
+		// System.out.println(Arrays.toString(c));
+		// System.out.println(Arrays.toString(d));
 
 		// TODO: Generate 3 other arrays, b, c, d where
 		// b contains sorted integers from a (You can use Java Arrays.sort() method)
@@ -67,38 +60,47 @@ public class Sorting {
 		// files should be generated. (one for each a,b,c, and d)
 
 	}
-	
+
 	public static int[] preSort(int[] array) {
 		Arrays.sort(array);
 		return array;
 	}
-	
+
 	public static int[] reverse(int[] array) {
-		
+
 		int counter = 0;
 		int[] reversed = new int[array.length];
-		for(int i=(array.length-1); i>=0; i--) {
+		for (int i = (array.length - 1); i >= 0; i--) {
 			reversed[counter] = array[i];
 			counter++;
 		}
 		return reversed;
-		
+
 	}
-	
+
 	public static int[] almostSort(int[] array) {
-		
-		double unsortDouble = (0.1*array.length);
+
+		double unsortDouble = (0.1 * array.length);
 		int unsorts = (int) Math.round(unsortDouble);
 		int[] unsorted = new int[array.length];
-		for(int i=0; i<array.length;i++) {
+		for (int i = 0; i < array.length; i++) {
 			unsorted[i] = array[i];
 		}
-		for(int i=0; i<=unsorts; i++) {
-			unsorted [(2*i)] = array[(2*i)+1];
-			unsorted [(2*i)+1] = array[2*i];
+		for (int i = 0; i <= unsorts; i++) {
+			unsorted[(2 * i)] = array[(2 * i) + 1];
+			unsorted[(2 * i) + 1] = array[2 * i];
 		}
 		return unsorted;
 	}
-	
+
+	public static void createFile(String newFile) {
+
+		try {
+			RandomAccessFile raf = new RandomAccessFile(newFile, "rw");
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
 
 }
