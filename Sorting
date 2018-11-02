@@ -17,7 +17,6 @@ public class Sorting {
 	 */
 	public static void main(String[] args) {
 		In in = new In(args[0]);
-		In alg = new In(args[1]);
 
 		// Storing file input in an array
 		int[] a = in.readAllInts();
@@ -25,9 +24,10 @@ public class Sorting {
 		int[] c = reverse(b);
 		int[] d = almostSort(b);
 
-		// System.out.println(Arrays.toString(b));
-		// System.out.println(Arrays.toString(c));
-		// System.out.println(Arrays.toString(d));
+		//Test
+		 System.out.println(Arrays.toString(d));
+//		 System.out.println(Arrays.toString(c));
+//		 System.out.println(Arrays.toString(d));
 
 		// TODO: Generate 3 other arrays, b, c, d where
 		// b contains sorted integers from a (You can use Java Arrays.sort() method)
@@ -49,6 +49,44 @@ public class Sorting {
 		// and record those.
 		// For runtime and priting, you can use the same code from Lab 4 as follows:
 
+		 
+		 int sortChoice = Integer.parseInt(args[1]);
+			switch(sortChoice) {
+			case 0:
+				//Arrays.sort()
+				//Find out how long this takes
+			
+				
+				break;
+			case 1:
+				//Bubble sort
+				
+				
+				break;
+			case 2:
+				//Selection Sort
+				
+				
+				break;
+			case 3:
+				//Insertion Sort
+				
+				break;
+			case 4:
+				//Merge Sort
+				
+				break;
+			case 5:
+				//Quick Sort
+				
+				break;
+			
+			}
+		 
+		 
+		 
+		 
+		 
 		// TODO: For each array, a, b, c, d:
 		Stopwatch timer = new Stopwatch();
 		// TODO: Perform Sorting and store the result in an array
