@@ -55,11 +55,10 @@ public class Sorting {
 		// and record those.
 		// For runtime and priting, you can use the same code from Lab 4 as follows:
 
-		Stopwatch timer = new Stopwatch();
+		
 		int[][] traverse = new int[][] {a,b,c,d};
 		String[] arrayNames = new String[] {"a","b","c","d"};
 		String arrayUsed = null;
-		double time = timer.elapsedTimeMillis();
 		String fileName = args[0];
 		int sortChoice = Integer.parseInt(args[1]);
 		String sortType = null;
@@ -69,12 +68,23 @@ public class Sorting {
 			sortType = "Java Default";
 			for (int i = 0; i < 4; i++) {
 				arrayUsed = arrayNames[i];
+				Stopwatch timer = new Stopwatch();
 				javaDefault(traverse[i]);
+				double time = timer.elapsedTimeMillis();
+				System.out.println(time);
 				Results(sortType, time, arrayUsed, fileName);
 			}
 			break;
 		case 1:
 			sortType = "Bubble Sort";
+			for (int i = 0; i < 4; i++) {
+				arrayUsed = arrayNames[i];
+				Stopwatch timer = new Stopwatch();
+				javaDefault(traverse[i]);
+				double time = timer.elapsedTimeMillis();
+				System.out.println(time);
+				Results(sortType, time, arrayUsed, fileName);
+			}
 
 			break;
 		case 2:
