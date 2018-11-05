@@ -27,7 +27,16 @@ import java.util.Calendar;
 public class Sorting {
 
 	public static void main(String[] args) {
-		In in = new In(args[0]);
+		
+		//the following checks to make sure that the original text file exists
+		In in = null;
+		try {
+			in = new In(args[0]);
+		} catch(IllegalArgumentException i) {
+			System.out.println("File does not exist");
+			System.exit(0);
+		}
+		
 
 		// The 4 input arrays are created below
 		int[] a = in.readAllInts();
