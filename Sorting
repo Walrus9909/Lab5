@@ -26,38 +26,18 @@ import java.util.Calendar;
 
 public class Sorting {
 
-	/**
-	 * 
-	 * Sorts the numbers present in the file based on the algorithm provided. 0 =
-	 * Arrays.sort() (Java Default) 1 = Bubble Sort 2 = Selection Sort 3 = Insertion
-	 * Sort 4 = Mergesort 5 = Quicksort
-	 *
-	 * @param args the command-line arguments
-	 */
 	public static void main(String[] args) {
 		In in = new In(args[0]);
 
-		// Storing file input in an array
+		//The 4 input arrays are created below
 		int[] a = in.readAllInts();
 		int[] b = preSort(a);
 		int[] c = reverse(b);
 		int[] d = almostSort(b);
-
-		// TODO:
-		// Read the second argument and based on input select the sorting algorithm
-		// * 0 = Arrays.sort() (Java Default)
-		// * 1 = Bubble Sort
-		// * 2 = Selection Sort
-		// * 3 = Insertion Sort
-		// * 4 = Mergesort
-		// * 5 = Quicksort
-		// Perform sorting on a,b,c,d. Pring runtime for each case along with timestamp
-		// and record those.
-		// For runtime and priting, you can use the same code from Lab 4 as follows:
-
 		
-		int[][] traverse = new int[][] {a,b,c,d};
-		String[] arrayNames = new String[] {"a","b","c","d"};
+
+		int[][] traverse = new int[][] { a, b, c, d };
+		String[] arrayNames = new String[] { "a", "b", "c", "d" };
 		String arrayUsed = null;
 		String fileName = args[0];
 		int sortChoice = Integer.parseInt(args[1]);
@@ -71,7 +51,7 @@ public class Sorting {
 				Stopwatch timer = new Stopwatch();
 				javaDefault(traverse[i]);
 				double time = timer.elapsedTimeMillis();
-				System.out.println(time);
+				createFile(sortType+": " + arrayUsed, traverse[i]);
 				results(sortType, time, arrayUsed, fileName);
 			}
 			break;
@@ -82,7 +62,7 @@ public class Sorting {
 				Stopwatch timer = new Stopwatch();
 				bubbleSort(traverse[i]);
 				double time = timer.elapsedTimeMillis();
-				System.out.println(time);
+				createFile(sortType+": " + arrayUsed, traverse[i]);
 				results(sortType, time, arrayUsed, fileName);
 			}
 			break;
@@ -93,7 +73,7 @@ public class Sorting {
 				Stopwatch timer = new Stopwatch();
 				selectionSort(traverse[i]);
 				double time = timer.elapsedTimeMillis();
-				System.out.println(time);
+				createFile(sortType+": " + arrayUsed, traverse[i]);
 				results(sortType, time, arrayUsed, fileName);
 			}
 			break;
@@ -104,7 +84,7 @@ public class Sorting {
 				Stopwatch timer = new Stopwatch();
 				insertionSort(traverse[i]);
 				double time = timer.elapsedTimeMillis();
-				System.out.println(time);
+				createFile(sortType+": " + arrayUsed, traverse[i]);
 				results(sortType, time, arrayUsed, fileName);
 			}
 			break;
@@ -119,24 +99,24 @@ public class Sorting {
 				Stopwatch timer = new Stopwatch();
 				int low = 0;
 				int high = traverse.length - 1;
-				quickSort(traverse[i],low,high);
+				quickSort(traverse[i], low, high);
 				double time = timer.elapsedTimeMillis();
-				System.out.println(time);
+				createFile(sortType+": " + arrayUsed, traverse[i]);
 				results(sortType, time, arrayUsed, fileName);
 			}
 			break;
 
 		}
 
-		
-
 	}
 
+	//the following method sorts the original array just using the Java Default Method
 	public static int[] preSort(int[] array) {
 		Arrays.sort(array);
 		return array;
 	}
 
+	//the following method takes the sorted array and reverses the order
 	public static int[] reverse(int[] array) {
 
 		int counter = 0;
@@ -149,6 +129,7 @@ public class Sorting {
 
 	}
 
+	//the following method takes the sorted array and makes enough swaps to meet the requirements of an almost sorted array
 	public static int[] almostSort(int[] array) {
 
 		double unsortDouble = (0.1 * array.length);
@@ -164,20 +145,24 @@ public class Sorting {
 		return unsorted;
 	}
 
-	public static void createFile(String newFile) {
-
+	//the following array creates a text file and takes the sorted array as an input 
+	public static void createFile(String newFile, int[] array) {
+		String arrayPrint = Arrays.toString(array);
 		try {
-			RandomAccessFile raf = new RandomAccessFile(newFile, "rw");
-
+			RandomAccessFile raf = new RandomAccessFile((newFile + ".txt"), "rw");
+			raf.writeChars(arrayPrint);
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
+
 	}
 
+	//the following method uses the javaDefault method to sort the given array
 	public static void javaDefault(int[] array) {
 		Arrays.sort(array);
 	}
 
+	//the following method takes in the various input factors 
 	public static void results(String sortType, double time, String arrayUsed, String fileName) {
 		// TODO: For each array, a, b, c, d:
 		// TODO: Perform Sorting and store the result in an array
@@ -192,17 +177,16 @@ public class Sorting {
 	}
 
 	public static void bubbleSort(int arr[]) {
-		int n = arr.length;
-		for (int i = 0; i < n - 1; i++)
-			for (int j = 0; j < n - i - 1; j++)
-				if (arr[j] > arr[j + 1]) {
-					// swap temp and arr[i]
-					int temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
+		int length = arr.length;
+		for (int i = 0; i < length - 1; i++)
+			for (int k = 0; k < length - i - 1; k++)
+				if (arr[k] > arr[k + 1]) {
+					int temp = arr[k];
+					arr[k] = arr[k + 1];
+					arr[k + 1] = temp;
 				}
 	}
-	
+
 	public static void insertionSort(int arr[]) {
 		int n = arr.length;
 		for (int i = 1; i < n; ++i) {
