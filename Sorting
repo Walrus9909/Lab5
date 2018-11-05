@@ -17,6 +17,15 @@
  *  % java Sorting 2Kints.txt  2
  *
  ******************************************************************************/
+
+/*William Williams
+ * wwilli17
+ * T & R Lab 2:00 PM TA: Lucy
+ * Partner: Mathew Taruno, mtaruno
+ * CSC 172
+ */
+
+
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.lang.reflect.Array;
@@ -183,18 +192,12 @@ public class Sorting {
 		Arrays.sort(array);
 	}
 
-	// the following method takes in the various input factors
+	// the following method takes in the various input factors and prints out the results in a formatted fashion
 	public static void results(String sortType, double time, String arrayUsed, String fileName) {
-		// TODO: For each array, a, b, c, d:
-		// TODO: Perform Sorting and store the result in an array
-
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 		String netID = "wwilli17";
 		String algorithmUsed = sortType;
-		// TODO: Replace with the array used
 		StdOut.printf("%s %s %8.1f   %s  %s  %s\n", algorithmUsed, arrayUsed, time, timeStamp, netID, fileName);
-		// Write the resultant array to a file (Each time you run a program 4 output
-		// files should be generated. (one for each a,b,c, and d)
 	}
 
 	// the following method uses bubble sort to sort the given array
@@ -211,15 +214,15 @@ public class Sorting {
 
 	// the following method uses insertion sort to sort the given array
 	public static void insertionSort(int array[]) {
-		int n = array.length;
-		for (int i = 1; i < n; ++i) {
+		int length = array.length;
+		for (int i = 1; i < length; ++i) {
 			int key = array[i];
-			int j = i - 1;
-			while (j >= 0 && array[j] > key) {
-				array[j + 1] = array[j];
-				j = j - 1;
+			int k = i - 1;
+			while (k >= 0 && array[k] > key) {
+				array[k + 1] = array[k];
+				k = k - 1;
 			}
-			array[j + 1] = key;
+			array[k + 1] = key;
 		}
 	}
 
