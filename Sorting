@@ -198,42 +198,42 @@ public class Sorting {
 	}
 
 	// the following method uses bubble sort to sort the given array
-	public static void bubbleSort(int arr[]) {
-		int length = arr.length;
+	public static void bubbleSort(int array[]) {
+		int length = array.length;
 		for (int i = 0; i < length - 1; i++)
 			for (int k = 0; k < length - i - 1; k++)
-				if (arr[k] > arr[k + 1]) {
-					int temp = arr[k];
-					arr[k] = arr[k + 1];
-					arr[k + 1] = temp;
+				if (array[k] > array[k + 1]) {
+					int temp = array[k];
+					array[k] = array[k + 1];
+					array[k + 1] = temp;
 				}
 	}
 
 	// the following method uses insertion sort to sort the given array
-	public static void insertionSort(int arr[]) {
-		int n = arr.length;
+	public static void insertionSort(int array[]) {
+		int n = array.length;
 		for (int i = 1; i < n; ++i) {
-			int key = arr[i];
+			int key = array[i];
 			int j = i - 1;
-			while (j >= 0 && arr[j] > key) {
-				arr[j + 1] = arr[j];
+			while (j >= 0 && array[j] > key) {
+				array[j + 1] = array[j];
 				j = j - 1;
 			}
-			arr[j + 1] = key;
+			array[j + 1] = key;
 		}
 	}
 
 	// the following method uses selection sort to sort the given array
-	public static void selectionSort(int arr[]) {
-		int n = arr.length;
+	public static void selectionSort(int array[]) {
+		int n = array.length;
 		for (int i = 0; i < n - 1; i++) {
 			int min_idx = i;
 			for (int j = i + 1; j < n; j++)
-				if (arr[j] < arr[min_idx])
+				if (array[j] < array[min_idx])
 					min_idx = j;
-			int temp = arr[min_idx];
-			arr[min_idx] = arr[i];
-			arr[i] = temp;
+			int temp = array[min_idx];
+			array[min_idx] = array[i];
+			array[i] = temp;
 		}
 
 	}
