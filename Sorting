@@ -175,7 +175,8 @@ public class Sorting {
 		// Write the resultant array to a file (Each time you run a program 4 output
 		// files should be generated. (one for each a,b,c, and d)
 	}
-
+	
+	//the following method uses bubble sort to sort the given array
 	public static void bubbleSort(int arr[]) {
 		int length = arr.length;
 		for (int i = 0; i < length - 1; i++)
@@ -186,17 +187,13 @@ public class Sorting {
 					arr[k + 1] = temp;
 				}
 	}
-
+	
+	//the following method uses insertion sort to sort the given array
 	public static void insertionSort(int arr[]) {
 		int n = arr.length;
 		for (int i = 1; i < n; ++i) {
 			int key = arr[i];
 			int j = i - 1;
-
-			/*
-			 * Move elements of arr[0..i-1], that are greater than key, to one position
-			 * ahead of their current position
-			 */
 			while (j >= 0 && arr[j] > key) {
 				arr[j + 1] = arr[j];
 				j = j - 1;
@@ -205,18 +202,14 @@ public class Sorting {
 		}
 	}
 
+	//the following method uses selection sort to sort the given array
 	public static void selectionSort(int arr[]) {
 		int n = arr.length;
-		// One by one move boundary of unsorted subarray
 		for (int i = 0; i < n - 1; i++) {
-			// Find the minimum element in unsorted array
 			int min_idx = i;
 			for (int j = i + 1; j < n; j++)
 				if (arr[j] < arr[min_idx])
 					min_idx = j;
-
-			// Swap the found minimum element with the first
-			// element
 			int temp = arr[min_idx];
 			arr[min_idx] = arr[i];
 			arr[i] = temp;
@@ -224,6 +217,7 @@ public class Sorting {
 
 	}
 
+	//the following method is used as a part of quicksort() for sorting 
 	public static int quickSortPartition(int arr[], int low, int high) {
 		int pivot = arr[high];
 		int i = (low - 1); // index of smaller element
@@ -248,6 +242,9 @@ public class Sorting {
 		return i + 1;
 	}
 
+	//the following array sorts the given array using quicksort
+	//the code for quicksort and quickSortPartition() was obtained from GeeksforGeeks
+	//the contributer of the code to the website is Rajat Mishra
 	public static void quickSort(int arr[], int low, int high) {
 
 		if (low < high) {
